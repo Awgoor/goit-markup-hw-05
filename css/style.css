@@ -655,7 +655,18 @@ box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.1
     z-index: 1000;
     background-color: rgba(46, 47, 66, 0.4);;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    */
 }
+
+/* .backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: initial;
+} */
 
 .modal {
     position: absolute;
@@ -673,22 +684,22 @@ box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.1
 
 .modal-btn {
     width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        fill: #e7e9fc;
-        stroke-width: 1px;
-        stroke: rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        background-color: rgba(231, 233, 252, 1);
-        position: absolute;
-        top: 24px;
-        right: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        padding: 0;
-        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    height: 24px;
+    border-radius: 50%;
+    fill: #e7e9fc;
+    stroke-width: 1px;
+    stroke: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    background-color: rgba(231, 233, 252, 1);
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-btn-icon {
@@ -699,8 +710,8 @@ box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.1
 .modal-btn:hover,
 .modal-btn:focus {
     border: none;
-        background-color: #404BBF;
-        fill: #ffffff;
+    background-color: #404BBF;
+    fill: #ffffff;
 
 }
 
@@ -720,7 +731,10 @@ box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.1
     margin-bottom: 16px;
 }
 
-.modal-form {}
+.modal-form {
+    /* width: 408px;
+    height: 585px; */
+}
 
 .modal-form-field {
     width: 360px;
@@ -774,6 +788,11 @@ box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.1
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
     top: 50%;
     transform: translateY(-50%);
+
+}
+
+.person {
+    fill: #4D5AE5;
 }
 
 .modal-form-icon:hover,
@@ -781,24 +800,39 @@ box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.1
     fill: #4D5AE5;
 }
 
-.modal-form-input:hover+.modal-form-icon,
-.modal-form-input:focus+.modal-form-icon {
+.modal-form-input:hover + .modal-form-icon,
+.modal-form-input:focus + .modal-form-icon {
     fill: #4D5AE5;
 }
 
 .modal-form-field {
-    width: 360px;
-    height: 138px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16667;
+    letter-spacing: 0.04em;
+    color: #8e8f99;
+   
     margin-bottom: 16px;
 }
 
-.textarea-text {
-    border: 1px solid rgba(46, 47, 66, 0.4);
-    border-radius: 4px;
-    width: 360px;
+.modal-message {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: #8e8f99;
+}
+
+.modal-form-field-lust {
+    margin-bottom: 16px;
+}
+
+.textarea-text {   
+    width: 100%;
     height: 120px;
     resize: none;
-    margin-bottom: 16px;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 12px;
@@ -806,6 +840,8 @@ box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.1
     letter-spacing: 0.04em;
     color: rgba(46, 47, 66, 0.4);
     background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
     padding: 8px 16px;
     outline: transparent;
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -818,16 +854,17 @@ box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.1
 /* чекбокс */
 
 .checkbox {
+    margin-top: 16px;
     margin-bottom: 24px;
 }
 
 .modal-form-agreement {
-    font-weight: 400;
+    /* font-weight: 400; */
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.04em;
     color: #8e8f99;
-    display: block;
+   
 }
 
 .agreement {}
@@ -838,29 +875,44 @@ box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.1
     fill: #F4F4FD;
 }
 
-input[type='checkbox']:checked+.agreement .agreement-checkbox {
+input[type='checkbox']:checked + .agreement .agreement-checkbox {
     background-color: #404bbf;
     border: none;
     fill: #F4F4FD;
+    
 }
 
 
 .agreement-checkbox {
-    width: 16px;
-    height: 16px;
-    border-radius: 2px;
-    border: 1px solid rgba(46, 47, 66, 0.4);
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     fill: transparent;
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 2px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+            border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+            fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.input[type='checkbox']:checked+.agreement>.agreement-checkbox>.agreement-icon {
+.agreement-checkbox-icon {
+    opacity: 0;
+    fill: #F4F4FD;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+input[type="checkbox"]:checked+.modal-form-agreement .agreement-checkbox .agreement-checkbox-icon {
+    fill: #F4F4FD;
     opacity: 1;
 }
+
+/* .input[type='checkbox']:checked + .agreement>.agreement-checkbox>.agreement-icon {
+
+    opacity: 1;
+} */
 
 .agreement-link {
     line-height: 1.33;
@@ -886,7 +938,6 @@ input[type='checkbox']:checked+.agreement .agreement-checkbox {
     text-align: center;
     color: #fff;
     cursor: pointer;
-    margin-top: 24px;
     border: none;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
